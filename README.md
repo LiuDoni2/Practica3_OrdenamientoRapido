@@ -166,105 +166,134 @@ int main() {
 
 ## Algoritmo en C
 
-``` c
+```c
 #include <stdio.h>
-#include <stdlib.h> 
 
-void burbuja(int lista[], int n) {
-    for (int i = 0; i < n; i++) { 
-        for (int j = 0; j < n - i - 1; j++) { 
-            if (lista[j] > lista[j + 1]) {
-                int temp = lista[j];
-                lista[j] = lista[j + 1];
-                lista[j + 1] = temp;
+// Función principal de QuickSort
+void quick_sort(int lista[], int izq, int der) {
+    if (izq < der) {
+        // Elegimos el pivote (último elemento)
+        int pivote = lista[der];
+        int i = izq - 1;
+        int temp;
+
+        // Reorganizamos los elementos alrededor del pivote
+        for (int j = izq; j < der; j++) {
+            if (lista[j] < pivote) {
+                i++;
+                // Intercambiamos elementos
+                temp = lista[i];
+                lista[i] = lista[j];
+                lista[j] = temp;
             }
         }
+
+        // Colocamos el pivote en su posición final
+        temp = lista[i + 1];
+        lista[i + 1] = lista[der];
+        lista[der] = temp;
+
+        // Llamadas recursivas para las sublistas
+        quick_sort(lista, izq, i);         // Sublista izquierda
+        quick_sort(lista, i + 2, der);     // Sublista derecha
     }
 }
 
+// Función principal para probar el algoritmo
 int main() {
-    int n;
-    printf("¿Cuántos números quieres ingresar? ");
-    scanf("%d", &n); 
+    int lista[] = {6, 3, 8, 1, 5};
+    int n = 5;  // Tamaño de la lista
 
-    if (n <= 0) {
-        printf("Por favor, ingresa un número mayor que 0.\n");
-        return 1; 
-    }
-    int *lista = (int *)malloc(n * sizeof(int)); 
+    // Llamamos a QuickSort
+    quick_sort(lista, 0, n - 1);
+
+    // Imprimimos la lista ordenada
     for (int i = 0; i < n; i++) {
-        printf("Ingresa el número en la posición %d: ", i + 1);
-        scanf("%d", &lista[i]); 
+        printf("%d ", lista[i]);
     }
+    printf("\n");
+
+    return 0;
+}
+```
+
+### Explicación del código
+
+#### 1. Función `quick_sort`
+Esta es la función principal que implementa el algoritmo QuickSort. Recibe tres parámetros:
+- `lista[]`: El arreglo a ordenar
+- `izq`: Índice izquierdo del segmento actual
+- `der`: Índice derecho del segmento actual
+
+#### 2. Selección del pivote
+```c
+int pivote = lista[der];
+```
+Elegimos el último elemento como pivote. Esta es una implementación simple, aunque existen otras estrategias para seleccionar el pivote.
+
+#### 3. Partición
+```c
+for (int j = izq; j < der; j++) {
+    if (lista[j] < pivote) {
+        i++;
+        temp = lista[i];
+        lista[i] = lista[j];
+        lista[j] = temp;
+    }
+}
+```
+Este bucle reorganiza los elementos:
+- Los menores que el pivote van a la izquierda
+- Los mayores que el pivote van a la derecha
+
+#### 4. Colocación del pivote
+```c
+temp = lista[i + 1];
+lista[i + 1] = lista[der];
+lista[der] = temp;
+```
+Colocamos el pivote en su posición final, entre los elementos menores y mayores.
+
+#### 5. Llamadas recursivas
+```c
+quick_sort(lista, izq, i);
+quick_sort(lista, i + 2, der);
+```
+Ordenamos recursivamente las sublistas izquierda y derecha.
+
+### Ejemplo de uso
+
+```c
+int main() {
+    int lista[] = {6, 3, 8, 1, 5};
+    int n = 5;
+    
     printf("Lista original: ");
     for (int i = 0; i < n; i++) {
-        printf("%d ", lista[i]); 
+        printf("%d ", lista[i]);
     }
-    printf("\n");
-
-    burbuja(lista, n); 
-
-    printf("Lista ordenada: ");
+    
+    quick_sort(lista, 0, n - 1);
+    
+    printf("\nLista ordenada: ");
     for (int i = 0; i < n; i++) {
-        printf("%d ", lista[i]); 
+        printf("%d ", lista[i]);
     }
     printf("\n");
-    free(lista);
-    return 0; 
+    
+    return 0;
 }
-``` 
+```
 
-### 1. **Incluir las librerías necesarias**
-- **`#include <stdio.h>`**: Esta librería permite usar funciones de entrada y salida estándar, como `printf` (para mostrar mensajes en consola) y `scanf` (para leer datos del usuario).
-- **`#include <stdlib.h>`**: Esta librería es necesaria para trabajar con funciones de memoria dinámica, como `malloc` (para asignar memoria) y `free` (para liberar memoria previamente asignada).
+### Salida esperada
+```
+Lista original: 6 3 8 1 5
+Lista ordenada: 1 3 5 6 8
+```
 
-### 2. **Uso de la función `burbuja`**
-La función `burbuja` es la que implementa el **algoritmo de ordenamiento burbuja**. Este algoritmo compara los elementos adyacentes de un arreglo y los intercambia si están en el orden incorrecto. La función tiene dos bucles anidados:
-- **Bucle externo**: Recorre el arreglo completo.
-- **Bucle interno**: Compara los elementos adyacentes y los intercambia si es necesario.
+## Conclusión
 
-El intercambio de los elementos se realiza mediante el uso de una **variable temporal** que ayuda a almacenar uno de los elementos mientras se realiza el intercambio. Al final del proceso, los elementos más grandes se "burbujearán" hacia el final del arreglo, quedando la lista ordenada.
-
-### 3. **Función `main`**
-La función `main` es la que coordina la ejecución del programa. Aquí es donde:
-- Se le solicita al usuario el número de elementos a ordenar.
-- Se asigna memoria dinámica para almacenar el arreglo de enteros con la función `malloc`.
-- Se leen los valores del usuario y se almacenan en el arreglo.
-- Luego, se imprime la lista original, se llama a la función `burbuja` para ordenar el arreglo, y finalmente, se imprime la lista ordenada.
-- La memoria asignada dinámicamente se libera con `free` al final para evitar fugas de memoria.
-
----
-
-### Conceptos Clave
-
-### 1. **Asignación Dinámica de Memoria**
-- En C, los arreglos de tamaño variable no pueden ser creados de manera estática. Usamos la función `malloc` para asignar memoria en tiempo de ejecución y obtener un arreglo de tamaño dinámico. La memoria asignada debe liberarse manualmente usando `free` para evitar fugas de memoria.
-
-### 2. **Intercambio de Elementos**
-- En el algoritmo de burbuja, los elementos adyacentes se comparan entre sí y se intercambian cuando están en el orden incorrecto. Para intercambiar los valores, se usa una **variable temporal** para almacenar un valor mientras se realiza el intercambio.
-
-### 3. **Uso de `scanf` y `printf`**
-- **`scanf`**: Esta función se utiliza para leer datos desde el teclado. En este caso, se usa para obtener el número de elementos y los valores de la lista.
-- **`printf`**: Esta función imprime datos en la consola. En este código, se usa para mostrar los resultados de la lista antes y después de ser ordenada.
-
-### 4. **Ciclos (Bucles) en C**
-- El ciclo **`for`** es fundamental para recorrer los arreglos y repetir bloques de código de manera eficiente. En este caso, se usa para leer y mostrar los elementos del arreglo, así como para realizar las comparaciones en el algoritmo de burbuja.
-
-### 5. **Liberación de Memoria con `free`**
-- El manejo de memoria dinámica es crucial en C. La función `free` se usa para liberar la memoria que fue previamente asignada con `malloc`. Esto previene que el programa consuma memoria innecesariamente y previene **fugas de memoria**.
-
----
-
-### Ventajas y Limitaciones de la Implementación
-
-### Ventajas:
-- **Uso eficiente de memoria dinámica**: Usar `malloc` permite manejar arreglos cuyo tamaño se define en tiempo de ejecución, lo cual es útil cuando no se conoce el tamaño del arreglo previamente.
-- **Simplicidad en el algoritmo**: El código es fácil de entender y proporciona una implementación clara y directa del algoritmo de burbuja.
-- **Control sobre la memoria**: El uso de punteros y memoria dinámica da más control sobre el manejo de recursos en el sistema.
-
-### Limitaciones:
-- **Ineficiencia del algoritmo**: El algoritmo de burbuja tiene una complejidad de \(O(n^2)\), lo que lo hace ineficiente para arreglos grandes. Existen algoritmos más rápidos, como el de ordenamiento rápido (quicksort) o el de mezcla (mergesort).
-- **Riesgo de fugas de memoria**: Si no se utiliza `free` correctamente, pueden ocurrir **fugas de memoria**, lo que puede hacer que el programa consuma más recursos de los necesarios.
+QuickSort es un algoritmo de ordenamiento eficiente y versátil que, a pesar de su complejidad conceptual, ofrece un excelente rendimiento en la práctica. Su implementación en C demuestra cómo un algoritmo aparentemente complejo puede implementarse de manera relativamente concisa y eficiente.
 
 ## Pseudocódigo (Pseint)
 
