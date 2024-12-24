@@ -20,51 +20,57 @@
 
 ## ❓ ¿Qué es el Algoritmo de Ordenamiento Burbuja?
 
-El **algoritmo de ordenamiento burbuja** es uno de los métodos más básicos para organizar una lista de elementos en orden (ya sea ascendente o descendente). Aunque no es el más eficiente para listas grandes, es una excelente forma de aprender cómo funcionan los algoritmos de ordenamiento.
+El **algoritmo QuickSort** es un método de ordenamiento eficiente que utiliza la estrategia "dividir y conquistar". Es uno de los algoritmos más utilizados en la práctica debido a su rendimiento promedio excepcional y su eficiencia en diferentes tipos de datos.
 
 ## ¿Cómo funciona?
 
-El nombre "burbuja" se debe a que los valores más grandes (o más pequeños, dependiendo del caso) "flotan" hacia el final de la lista, como burbujas en el agua.
+El nombre "QuickSort" (ordenamiento rápido) se debe a su capacidad para ordenar elementos más rápidamente que muchos otros algoritmos. Funciona seleccionando un elemento "pivote" y reorganizando la lista alrededor de él.
 
 ### Pasos del algoritmo:
-1. Compara dos elementos adyacentes en la lista.
-2. Si están en el orden equivocado (por ejemplo, el primero es mayor que el segundo en un orden ascendente), intercámbialos.
-3. Repite este proceso para todos los elementos de la lista, una y otra vez, hasta que esté completamente ordenada.
+1. Selecciona un elemento como pivote (generalmente el último o uno aleatorio).
+2. Coloca todos los elementos menores que el pivote a su izquierda.
+3. Coloca todos los elementos mayores que el pivote a su derecha.
+4. Repite el proceso recursivamente para las sublistas izquierda y derecha.
 
 ## Ejemplo paso a paso
 
-Imagina que tienes la lista **[5, 3, 8, 2]** y quieres ordenarla en forma ascendente:
+Imagina que tienes la lista **[6, 3, 8, 1, 5]** y quieres ordenarla en forma ascendente:
 
-### Primera pasada:
-- Compara 5 y 3. Como 5 > 3, los intercambias. Lista: **[3, 5, 8, 2]**  
-- Compara 5 y 8. Como 5 < 8, no haces nada. Lista: **[3, 5, 8, 2]**  
-- Compara 8 y 2. Como 8 > 2, los intercambias. Lista: **[3, 5, 2, 8]**  
-Ahora, el número 8 está en su lugar correcto.
+### Primera partición:
+- Pivote: 5 (último elemento)
+- Compara cada elemento con 5:
+  - [**3**, **1**, 8, 6, 5] (mueve los menores a la izquierda)
+  - [3, 1, 5, **8**, **6**] (el pivote en su posición final)
 
-### Segunda pasada:
-- Compara 3 y 5. Como 3 < 5, no haces nada. Lista: **[3, 5, 2, 8]**  
-- Compara 5 y 2. Como 5 > 2, los intercambias. Lista: **[3, 2, 5, 8]**  
-Ahora, el número 5 está en su lugar correcto.
+### Segunda partición (sublista izquierda [3, 1]):
+- Pivote: 1
+- Resultado: [**1**, 3]
 
-### Tercera pasada:
-- Compara 3 y 2. Como 3 > 2, los intercambias. Lista: **[2, 3, 5, 8]**  
-Ahora, la lista está completamente ordenada.
+### Segunda partición (sublista derecha [8, 6]):
+- Pivote: 6
+- Resultado: [6, 8]
+
+### Resultado final:
+[1, 3, 5, 6, 8]
 
 ## Características del algoritmo
 
-- **Simplicidad:** Es fácil de entender y programar.
-- **Eficiencia baja:** Su complejidad es \(O(n^2)\) en el peor y promedio de los casos, lo que significa que se vuelve lento para listas grandes.
-- **In-place:** No requiere memoria extra significativa, ya que se realiza directamente en la lista original.
+- **Eficiencia:** Su complejidad promedio es O(n log n), lo que lo hace muy eficiente.
+- **Recursividad:** Utiliza la recursión para resolver subproblemas más pequeños.
+- **In-place:** Puede implementarse para usar memoria adicional mínima.
 
 ## Ventajas y Desventajas
 
 ### Ventajas:
-- Fácil de implementar.
-- Útil para listas pequeñas o como introducción a los algoritmos de ordenamiento.
+- Muy eficiente en la práctica
+- Buen rendimiento en casos promedio
+- Funciona bien con diferentes tipos de datos
+- Puede implementarse para usar poca memoria adicional
 
 ### Desventajas:
-- Muy ineficiente para listas grandes.
-- Realiza muchas comparaciones e intercambios innecesarios en el peor de los casos.
+- Implementación más compleja que otros algoritmos básicos
+- En el peor caso (raro) puede tener un rendimiento de O(n²)
+- La recursión puede consumir memoria del stack
 
 # 💻 Implementaciones en Diferentes Lenguajes
 
