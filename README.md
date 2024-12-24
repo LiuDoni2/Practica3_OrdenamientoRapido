@@ -10,7 +10,7 @@
 | TEMA | DESCRIPCIÓN | ATAJO |
 |------|-------------|-------|
 | 📚 **Introducción** | *Descripción del algoritmo* | [ver](#-que-es-el-algoritmo-de-ordenamiento-rapido) |
-| 💻 **C++** | *Implementación en C++* | [ver](#c) |
+| 💻 **C++** | *Implementación en C++* | [ver](#algoritmo-en-C++) |
 | 💻 **C** | *Implementación en C* | [ver](#algoritmo-en-C) |
 | 🐍 **Python** | *Implementación en Python* | [ver](#python) |
 | ❓ **Conclusión** | *Reflexiones finales* | [ver](#conclusión) |
