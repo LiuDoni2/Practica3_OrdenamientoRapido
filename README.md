@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-<img src="https://i.imgur.com/xOn3TKn.gif" alt="Animación del Algoritmo de Ordenamiento Burbuja" width="600"/>
+<img src="https://i.imgur.com/i3tjrss.gif" alt="Animación del Algoritmo de Ordenamiento Burbuja" width="600"/>
 </p>
 
 ### 📍 Atajos del README
