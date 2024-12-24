@@ -9,7 +9,7 @@
 ### 📍 Atajos del README
 | TEMA | DESCRIPCIÓN | ATAJO |
 |------|-------------|-------|
-| 📚 **Introducción** | *Descripción del algoritmo* | [ver](#-que-es-el-algoritmo-de-ordenamiento-burbuja) |
+| 📚 **Introducción** | *Descripción del algoritmo* | [ver](#-que-es-el-algoritmo-de-ordenamiento-rapido) |
 | 💻 **C++** | *Implementación en C++* | [ver](#c) |
 | 💻 **C** | *Implementación en C* | [ver](#c-1) |
 | 📜 **Pseudocódigo** | *Implementación en Pseudocódigo* | [ver](#pseudocódigo-pseint) |
@@ -18,9 +18,9 @@
 
 ----
 
-## ❓ ¿Qué es el Algoritmo de Ordenamiento Burbuja?
+## ❓ ¿Qué es el Algoritmo de Ordenamiento Rapido?
 
-El **algoritmo QuickSort** es un método de ordenamiento eficiente que utiliza la estrategia "dividir y conquistar". Es uno de los algoritmos más utilizados en la práctica debido a su rendimiento promedio excepcional y su eficiencia en diferentes tipos de datos.
+El ALgoritmo de Ordenamiento Rapido o tambien llamado **algoritmo QuickSort** es un método de ordenamiento eficiente que utiliza la estrategia "dividir y conquistar". Es uno de los algoritmos más utilizados en la práctica debido a su rendimiento promedio excepcional y su eficiencia en diferentes tipos de datos.
 
 ## ¿Cómo funciona?
 
