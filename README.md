@@ -11,7 +11,7 @@
 |------|-------------|-------|
 | 📚 **Introducción** | *Descripción del algoritmo* | [ver](#-que-es-el-algoritmo-de-ordenamiento-rapido) |
 | 💻 **C++** | *Implementación en C++* | [ver](#c) |
-| 💻 **C** | *Implementación en C* | [ver](#c-1) |
+| 💻 **C** | *Implementación en C* | [ver](#algoritmo-en-C) |
 | 📜 **Pseudocódigo** | *Implementación en Pseudocódigo* | [ver](#pseudocódigo-pseint) |
 | 🐍 **Python** | *Implementación en Python* | [ver](#python) |
 | ❓ **Conclusión** | *Reflexiones finales* | [ver](#conclusión) |
