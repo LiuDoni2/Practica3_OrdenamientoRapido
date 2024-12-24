@@ -12,7 +12,6 @@
 | 📚 **Introducción** | *Descripción del algoritmo* | [ver](#-que-es-el-algoritmo-de-ordenamiento-rapido) |
 | 💻 **C++** | *Implementación en C++* | [ver](#c) |
 | 💻 **C** | *Implementación en C* | [ver](#algoritmo-en-C) |
-| 📜 **Pseudocódigo** | *Implementación en Pseudocódigo* | [ver](#pseudocódigo-pseint) |
 | 🐍 **Python** | *Implementación en Python* | [ver](#python) |
 | ❓ **Conclusión** | *Reflexiones finales* | [ver](#conclusión) |
 
@@ -295,89 +294,6 @@ Lista ordenada: 1 3 5 6 8
 
 QuickSort es un algoritmo de ordenamiento eficiente y versátil que, a pesar de su complejidad conceptual, ofrece un excelente rendimiento en la práctica. Su implementación en C demuestra cómo un algoritmo aparentemente complejo puede implementarse de manera relativamente concisa y eficiente.
 
-## Pseudocódigo (Pseint)
-
-``` psc
-Algoritmo OrdenamientoBurbuja
-	Dimensionar lista(5)
-	Para i<-1 Hasta 5 Hacer
-		Escribir 'Ingresa el número en la posición ', i, ': '
-		Leer lista[i]
-	FinPara
-	Escribir 'Lista original:', lista[1], ',', lista[2], ',', lista[3], ',', lista[4], ',', lista[5]
-	OrdenarBurbuja(lista,5)
-	Escribir 'Lista ordenada:', lista[1], ',', lista[2], ',', lista[3], ',', lista[4], ',', lista[5]
-FinAlgoritmo
-
-Función OrdenarBurbuja(lista,n)
-	Definir i, j, temp Como Entero
-	Para i<-1 Hasta n-1 Hacer
-		Para j<-1 Hasta n-i Hacer
-			Si lista[j]>lista[j+1] Entonces
-				temp <- lista[j]
-				lista[j] <- lista[j+1]
-				lista[j+1]<-temp
-			FinSi
-		FinPara
-	FinPara
-FinFunción
-``` 
-
-### 1. **Incluir las instrucciones básicas**
-En este pseudocódigo, la estructura general del algoritmo es simple y consiste en solicitar al usuario 5 números, ordenarlos mediante el algoritmo de burbuja, y luego mostrar la lista antes y después del ordenamiento.
-
-#### Definición de la lista
-El pseudocódigo comienza con la declaración de una lista de tamaño fijo, en este caso, de 5 elementos. La dimensión de la lista es establecida como una constante en el inicio, lo que limita la flexibilidad, ya que solo se pueden manejar 5 elementos.
-
-#### Solicitar los números al usuario
-A continuación, se utiliza un ciclo para solicitar al usuario que ingrese 5 números, uno por uno. La función **`Escribir`** se emplea para mostrar un mensaje indicándole al usuario que ingrese un número en cada posición de la lista. Luego, la función **`Leer`** captura el número ingresado y lo almacena en el arreglo en la posición correspondiente.
-
-#### Mostrar la lista original
-Una vez que el usuario ha ingresado todos los números, se muestra la lista tal como fue ingresada, es decir, antes de aplicar cualquier ordenamiento.
-
-#### Ordenar la lista utilizando el algoritmo de burbuja
-El algoritmo de burbuja se implementa en la función **`OrdenarBurbuja`**, que toma la lista y su tamaño como parámetros. Esta función realiza el proceso de comparar los elementos adyacentes y, si es necesario, intercambiarlos para que los números más grandes "burbujearán" hacia el final de la lista.
-
-#### Mostrar la lista ordenada
-Finalmente, se imprime la lista después de que haya sido ordenada, mostrando los números en el orden correcto según el algoritmo de burbuja.
-
-### 2. **Función `OrdenarBurbuja`**
-
-La función **`OrdenarBurbuja`** implementa el clásico algoritmo de ordenamiento burbuja. Este algoritmo consiste en recorrer el arreglo varias veces y comparar elementos adyacentes, intercambiándolos si están en el orden incorrecto. La función realiza lo siguiente:
-
-- Se definen las variables `i`, `j` y `temp`, donde `i` es el índice del ciclo externo y `j` el índice del ciclo interno que compara los elementos adyacentes.
-- Se utiliza una variable temporal `temp` para facilitar el intercambio de los elementos cuando sea necesario.
-- El ciclo **externo** recorre el arreglo, y el ciclo **interno** realiza las comparaciones y los intercambios de elementos adyacentes si están fuera de orden.
-
----
-
-### Conceptos Clave 
-
-### 1. **Algoritmo de Ordenamiento Burbuja**
-El algoritmo de **burbuja** es uno de los más sencillos de entender, aunque no es muy eficiente para grandes cantidades de datos. En este algoritmo, los elementos del arreglo se comparan de dos en dos y, si están fuera de orden, se intercambian. Este proceso se repite hasta que la lista está completamente ordenada.
-
-### 2. **Estructura de Ciclos (Bucles)**
-El pseudocódigo utiliza ciclos **`Para`** para recorrer las posiciones del arreglo:
-- El **bucle externo** se encarga de pasar por todo el arreglo, asegurándose de que cada elemento sea comparado.
-- El **bucle interno** compara dos elementos adyacentes y realiza un intercambio si es necesario. Este ciclo es esencial para asegurar que los elementos más grandes se "muevan" hacia el final del arreglo.
-
-### 3. **Intercambio de Elementos**
-El intercambio de elementos es una parte clave del algoritmo. Si dos elementos están fuera de orden, el algoritmo los intercambia utilizando una variable temporal **`temp`**. Esto permite que los elementos cambien de posición sin perder sus valores.
-
-### 4. **Entrada y Salida de Datos**
-En el pseudocódigo, se utiliza la función **`Escribir`** para mostrar mensajes al usuario y **`Leer`** para capturar los datos ingresados por el usuario. Estas funciones permiten interactuar con el programa, pidiendo al usuario que ingrese los números a ordenar y mostrando los resultados antes y después del ordenamiento.
-
----
-
-### Ventajas y Limitaciones del Algoritmo
-
-### Ventajas:
-- **Simplicidad**: El algoritmo de burbuja es fácil de entender y se puede implementar rápidamente, lo que lo hace adecuado para principiantes en la programación.
-- **Visualización clara**: El proceso de comparación e intercambio es sencillo de seguir, lo que ayuda a los estudiantes a comprender cómo funcionan los algoritmos de ordenamiento.
-
-### Limitaciones:
-- **Ineficiencia para listas grandes**: El algoritmo de burbuja tiene una **complejidad de tiempo \(O(n^2)\)**, lo que lo hace muy lento cuando se trabaja con listas grandes. A medida que el número de elementos aumenta, el tiempo de ejecución crece exponencialmente.
-- **Menos eficiente comparado con otros algoritmos**: Aunque es fácil de entender, el algoritmo de burbuja es más lento que otros algoritmos como el **quicksort** o el **mergesort**, que tienen una complejidad de tiempo mucho más eficiente.
 
 ## Python
 
