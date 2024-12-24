@@ -398,5 +398,5 @@ Hemos explorado la implementación del algoritmo de **ordenamiento burbuja** en 
 
 
 <p align="center">
-<img src="https://i.imgur.com/iIkvbtg.gif" alt="GIF Gráfico del Algoritmo" width="600"/>
+<img src="https://i.imgur.com/CEgb28l.gif" alt="GIF Gráfico del Algoritmo" width="600"/>
 </p>
